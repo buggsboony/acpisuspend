@@ -13,11 +13,17 @@ LCYAN='\033[1;36m'
 NC='\033[0m' # No Color
 
 
-foundline=$(cat /proc/acpi/wakeup  | grep XHC | grep enable | wc -l)
+#XHC
+what=XHC
+#foundline=$(cat /proc/acpi/wakeup  | grep $what | grep enable | wc -l)
+
+#LID0 
+what=LID0
+foundline=$(cat /proc/acpi/wakeup  | grep $what | grep enable | wc -l)
 
 if [ $foundline = 0 ]; then
     echo "must disable it";
-    sudo sh -c "echo XHC >/proc/acpi/wakeup"
+    sudo sh -c "echo $what >/proc/acpi/wakeup"
 else
 echo "Already disabled, ok";
 fi
