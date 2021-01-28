@@ -14,14 +14,14 @@ NC='\033[0m' # No Color
 
 
 
-arr=(XHC,LID0)
+arr=(XHC LID0)
 
 for v in "${arr[@]}"
 do
 
  
 what=$v
-echo "Looking for $what'" 
+echo "Looking for $what" 
 foundline=$(cat /proc/acpi/wakeup  | grep $what | grep enable | wc -l)
 
 if [ $foundline = 0 ]; then
@@ -37,4 +37,4 @@ done
 
 
 
-systemctl suspend
+#systemctl suspend
