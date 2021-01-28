@@ -37,4 +37,4 @@ done
 
 
 
-#systemctl suspend
+systemctl suspend
