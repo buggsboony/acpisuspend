@@ -14,26 +14,27 @@ NC='\033[0m' # No Color
 
 
 
-arr=(XHC LID0)
+#arr=(XHC RP03 RP04)
+arr=(XHC)
 
 for v in "${arr[@]}"
 do
 
  
-what=$v
-echo "Looking for $what" 
-foundline=$(cat /proc/acpi/wakeup  | grep $what | grep enable | wc -l)
-
-if [ $foundline = 0 ]; then
-    echo "must disable it";
-    sudo sh -c "echo $what >/proc/acpi/wakeup"
-else
-echo "$what Already disabled, ok";
-fi
+    what=$v
+    echo "Looking for $what" 
+    foundline=$(cat /proc/acpi/wakeup  | grep $what | grep enable | wc -l)
+    echo "Found line : $foundline"
+    if [ $foundline -gt 0 ]; then
+        echo "must disable [$what]";
+        #echo "echo $what >/proc/acpi/wakeup"
+        sudo sh -c "echo $what >/proc/acpi/wakeup"
+    else
+    echo "$what Already disabled, ok";
+    fi
 
 
 done
-
 
 
 
