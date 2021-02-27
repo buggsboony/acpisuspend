@@ -14,7 +14,7 @@ NC='\033[0m' # No Color
 
 
 
-#arr=(XHC RP03 RP04)
+#arr=(XHC LID0 RP03 RP04)
 arr=(XHC)
 
 for v in "${arr[@]}"
