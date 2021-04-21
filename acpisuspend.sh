@@ -38,4 +38,22 @@ done
 
 
 
-systemctl suspend
+
+     #ask before continue (save and actually jump)
+                   printf "${YELL}Suspend to RAM ?${NC} \n";                     
+                   read -r -p "Continue ? " response
+                   case "$response" in
+                           [yY][eE][sS]|[yY]|[oO] )
+                     
+                        echo "Suspending...";                                       
+                        systemctl suspend
+                        
+                       ;;
+                       *)       
+                       mustexit=1  
+                       printf "${WHITE} Ok, skipping. ${NC}\n"; 
+                  
+                       ;;
+                   esac    
+
+
