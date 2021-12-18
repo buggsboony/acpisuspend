@@ -55,12 +55,10 @@ do
     else
     echo "$what Already disabled, ok";
     fi
-
-
 done
 
 echo "Suspend now !"
-sudo systemctl suspend
+systemctl suspend
 
     #  #ask before continue (save and actually jump)
     #                printf "${YELL}Suspend to RAM ?${NC} \n";                     
