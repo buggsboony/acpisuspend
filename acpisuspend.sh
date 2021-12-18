@@ -57,6 +57,12 @@ do
     fi
 done
 
+## Grant sudo access to systemctl suspend
+# sudo nano /etc/sudoers    
+# # Allow acpisuspend to wait and suspend
+# boony ALL = (ALL) NOPASSWD: /usr/bin/systemctl suspend
+
+
 echo "Suspend now !"
 systemctl suspend
 
