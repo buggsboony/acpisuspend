@@ -13,6 +13,14 @@ LCYAN='\033[1;36m'
 NC='\033[0m' # No Color
 
 
+t="$1"
+if [ -z "$t" ] ; then
+    t=0
+fi
+seconds=$(echo "$t*60"|bc);
+echo "Will suspend in $t min(s) or [$seconds] secondes, At:"
+date -d "today + $t minutes"
+sleep $seconds
 
 #arr=(XHC LID0 RP03 RP04)
 #arr=(XHC) #2021-09-30 18:31:21
@@ -51,24 +59,24 @@ do
 
 done
 
+echo "Suspend now !"
+sudo systemctl suspend
 
-
-
-     #ask before continue (save and actually jump)
-                   printf "${YELL}Suspend to RAM ?${NC} \n";                     
-                   read -r -p "Continue ? " response
-                   case "$response" in
-                           [yY][eE][sS]|[yY]|[oO] )
+    #  #ask before continue (save and actually jump)
+    #                printf "${YELL}Suspend to RAM ?${NC} \n";                     
+    #                read -r -p "Continue ? " response
+    #                case "$response" in
+    #                        [yY][eE][sS]|[yY]|[oO] )
                      
-                        echo "Suspending...";                                       
-                        systemctl suspend
+    #                     echo "Suspending...";                                       
+    #                     sudo systemctl suspend
                         
-                       ;;
-                       *)       
-                       mustexit=1  
-                       printf "${WHITE} Ok, skipping. ${NC}\n"; 
+    #                    ;;
+    #                    *)       
+    #                    mustexit=1  
+    #                    printf "${WHITE} Ok, skipping. ${NC}\n"; 
                   
-                       ;;
-                   esac    
+    #                    ;;
+    #                esac    
 
 
