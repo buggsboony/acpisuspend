@@ -2,6 +2,7 @@
 #Simple installer
 #install stuff
 what=${PWD##*/}   
+what=acpihibernate
 extension=.sh
 #peut être extension vide
 
@@ -12,7 +13,7 @@ sudo ln -s "$PWD/$what$extension" /usr/bin/$what
 echo "done."
 
 
-what="acpi-hibernate"   
+what="acpihibernate"   
 extension=.sh
 #peut être extension vide
 
