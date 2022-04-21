@@ -18,7 +18,7 @@ if [ -z "$t" ] ; then
     t=0
 fi
 seconds=$(echo "$t*60"|bc);
-echo "Will suspend in $t min(s) or [$seconds] secondes, At:"
+echo "Will hibernate in $t min(s) or [$seconds] secondes, At:"
 date -d "today + $t minutes"
 sleep $seconds
 

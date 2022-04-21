@@ -1,0 +1,7 @@
+#GRANT sudo rights to script
+nano /etc/sudoers
+
+# Allow acpisuspend to wait and suspend
+YOUR_USER ALL = (ALL) NOPASSWD: /usr/bin/systemctl suspend
+YOUR_USER ALL = (ALL) NOPASSWD: /usr/bin/systemctl hibernate
+
