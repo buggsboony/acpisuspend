@@ -13,15 +13,6 @@ LCYAN='\033[1;36m'
 NC='\033[0m' # No Color
 
 
-t="$1"
-if [ -z "$t" ] ; then
-    t=0
-fi
-seconds=$(echo "$t*60"|bc);
-echo "Will suspend in $t min(s) or [$seconds] secondes, At:"
-date -d "today + $t minutes"
-sleep $seconds
-
 #arr=(XHC LID0 RP03 RP04)
 #arr=(XHC) #2021-09-30 18:31:21
 #arr=(XHC XDCI)
@@ -57,14 +48,7 @@ do
     fi
 done
 
-## Grant sudo access to systemctl suspend
-# sudo nano /etc/sudoers    
-# # Allow acpisuspend to wait and suspend
-# boony ALL = (ALL) NOPASSWD: /usr/bin/systemctl suspend
 
-
-echo "Suspend now !"
-systemctl suspend
 
     #  #ask before continue (save and actually jump)
     #                printf "${YELL}Suspend to RAM ?${NC} \n";                     
@@ -84,3 +68,24 @@ systemctl suspend
     #                esac    
 
 
+
+
+t="$1"
+if [ -z "$t" ] ; then
+    t=0
+fi
+seconds=$(echo "$t*60"|bc);
+echo "Will suspend in $t min(s) or [$seconds] secondes, At:"
+date -d "today + $t minutes"
+sleep $seconds
+
+
+
+## Grant sudo access to systemctl suspend
+# sudo nano /etc/sudoers    
+# # Allow acpisuspend to wait and suspend
+# boony ALL = (ALL) NOPASSWD: /usr/bin/systemctl suspend
+
+
+echo "Suspend now !"
+systemctl suspend
